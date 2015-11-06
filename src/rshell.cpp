@@ -1,8 +1,9 @@
 #include <iostream>
-#include <cstdlib>
+#include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <algorithm>
 #include <sys/types.h>
 #include <string.h>
 #include <vector>
@@ -16,23 +17,27 @@ typedef tokenizer<char_separator<char> > mytok;
 bool runcmd(vector <char*> cmnd)
 {
     //output test 
-    //for (unsigned i = 0; i < cmnd.size(); i++)
-    //{
-    //    cout << cmnd.at(i) << " ";
-    //}
-    //cout << endl;
+    for (unsigned i = 0; i < cmnd.size(); i++)
+    {
+       cout << cmnd.at(i) << " ";
+    }
+    cout << endl;
     cmnd.push_back('\0');
     int pid = fork();
+    int status;
         if (pid < 0)
         {
             perror ("forking error");
+            exit(0);
+            return false;
         }
         else if (pid == 0)
         {
             //child
-            if (execvp (cmnd[0], &cmnd[0]) < 0)
+            if(execvp(cmnd[0], &cmnd[0]) < 0)
             {
                 perror ("exec");
+                exit(1);
                 return false;
             }
             return true;
@@ -40,12 +45,11 @@ bool runcmd(vector <char*> cmnd)
         else if (pid > 0) 
         {
             //parent
-            if (wait(0) < 0)
+            if(waitpid(pid, &status, 0) == -1)
             {
-                perror ("wait");
-                return false;
+                perror("Wait Error");
             }
-            return true;
+        return true;
         }
         return false;
 }
@@ -70,13 +74,20 @@ int main()
     }else{
         perror("Cannot get User Name");
     }
+    
+    while (true){
+    cmnd.clear();
+    parsed.clear();
+    comment = false;
+    previous = true;
 
     cout << user << "@" << host <<  "$ ";
     getline(cin, command);
-    
+
     //create delim for tokenizer
     char_separator<char> delim(" ", ";#");
     tokenizer< char_separator<char> > mytok(command, delim);
+
 
     //iterate through the string and save each command in vector
     for (mytok::iterator it = mytok.begin(); it != mytok.end(); ++it)
@@ -92,6 +103,10 @@ int main()
         //if comment == true then dont do anything 
         if (comment)
         { }
+        else if (strcmp(cmnd.at(cmnd.size() - 1), "exit") == 0 && cmnd.size() == 1)
+        { 
+            exit(0);
+        }
         else if (strcmp(cmnd.at(cmnd.size() - 1),";") == 0) 
         {
             if (previous == true)
@@ -100,6 +115,7 @@ int main()
                 runcmd(cmnd);
             }
             cmnd.clear();
+            previous = true;
         }
         //if && then exec command if previous is true 
         //if previous was false, then dont exec and set previous to false
@@ -150,7 +166,8 @@ if (cmnd.size() > 0 && !comment && previous)
     runcmd(cmnd);
 }
 
-   
+}//end of while   
+
     return 0; 
 }
 
