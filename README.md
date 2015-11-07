@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 rshell
 ======
 
@@ -26,3 +27,7 @@ List of known Bugs
 - # cannot be a name of file or echoed
 - || does not work if used consecutively more than twice
 
+=======
+# rshell
+rshell
+>>>>>>> f28ffd1f0e1413f3c400dd3482d24bcab2efdba9
