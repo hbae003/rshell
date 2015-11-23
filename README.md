@@ -38,6 +38,7 @@ succeeds. It returns 1 (FALSE) if the test fails. The flags for the test command
 - -f checks if the file/directory exists and is a regular file
 - -d checks if the file/directory exists and is a directory
 
+Instead of test, you can just put the flags in the []. The default will be the -e flag if you do not input any flags
 
 
 List of known Bugs
