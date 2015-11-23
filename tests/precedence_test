@@ -1,1 +1,40 @@
 
+kle016@hammer.cs.ucr.edu$ echo A && echo B || echo C && echo D
+A
+B
+D
+kle016@hammer.cs.ucr.edu$ (echo A && echo B) || (echo C && echo D)
+A
+B
+kle016@hammer.cs.ucr.edu$ (echo A || echo B) && (echo C || echo D)
+A
+C
+B
+kle016@hammer.cs.ucr.edu$  (echo A && echo B) || (echo C || echo D)
+A
+B
+kle016@hammer.cs.ucr.edu$ (echo A || echo B) || (echo C || echo D)
+A
+kle016@hammer.cs.ucr.edu$  (echo A && echo B)
+A
+B
+kle016@hammer.cs.ucr.edu$ (echo A || echo B)
+A
+kle016@hammer.cs.ucr.edu$ (echo A || echo B) || (echo C || echo D) || (echo E || echo F)
+A
+E
+kle016@hammer.cs.ucr.edu$ (echo A && echo B) && (echo C && echo D) && (echo E && echo F)
+A
+B
+C
+D
+E
+F
+kle016@hammer.cs.ucr.edu$ (ls && pwd) && (ls -a && echo A)
+a.out  rshell.cpp
+/home/csmajs/kle016/rshell/src
+.  ..  a.out  rshell.cpp
+A
+kle016@hammer.cs.ucr.edu$ (ls && pwd) || (ls -a && echo A)
+a.out  rshell.cpp
+/home/csmajs/kle016/rshell/src
