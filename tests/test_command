@@ -61,4 +61,30 @@ error: flag doesnt exist
 kle016@hammer.cs.ucr.edu$ test -def /home/csmajs/kle016/rshell/a.out && echo "path exists" && echo "path still exists"
 error: flag doesnt exist
 -def
+kle016@hammer.cs.ucr.edu$ [ -e /test/file/path ] && echo “path exists”
+kle016@hammer.cs.ucr.edu$ [ -e /home/csmajs/kle016/rshell ] && echo “path exists”
+“path exists”
+[ -e /home/csmajs/kle016/rshell ] || echo “path exists”
+exec: No such file or directory
+kle016@hammer.cs.ucr.edu$ [-e/home/csmajs/kle016/rshell] && echo “path exists”
+exec: No such file or directory
+kle016@hammer.cs.ucr.edu$ [ -e /home/csmajs/kle016/rshell ] && echo “path exists” && echo “path still exists"
+“path exists”
+“path still exists "
+kle016@hammer.cs.ucr.edu$ [ -e /home/csmajs/kle016/rshell ] && echo “path exists” || echo “path still exists"
+“path exists”
+kle016@hammer.cs.ucr.edu$ [ -f /home/csmajs/kle016/rshell ] && echo “path exists”
+kle016@hammer.cs.ucr.edu$ [ -f /home/csmajs/kle016/a.out ] && echo “path exists”
+kle016@hammer.cs.ucr.edu$ [ -f /home/csmajs/kle016/rshell.cpp ] || echo “path exists”
+“path exists”
+kle016@hammer.cs.ucr.edu$ [ -f /this/is/fake ] && echo "path exists"
+kle016@hammer.cs.ucr.edu$ [ -f /this/is/fake ] || echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$  -d /home/csmajs/kle016/rshell.cpp ] || echo “path exists”
+exec: No such file or directory
+“path exists”
+kle016@hammer.cs.ucr.edu$ [ -d /home/csmajs/kle016/rshell.cpp ] || echo “path exists”
+“path exists”
+kle016@hammer.cs.ucr.edu$ [ -d /home/csmajs/kle016/rshell.cpp ] || echo “path exists” && [ -e /home/csmajs/kle016/rshell.cpp ]
+“path exists”
 kle016@hammer.cs.ucr.edu$ 
