@@ -40,4 +40,25 @@ error: flag doesnt exist
 kle016@hammer.cs.ucr.edu$ test -f /home/csmajs/kle016/rshell/rshell.cpp && echo "path exists"
 kle016@hammer.cs.ucr.edu$ test -f /home/csmajs/kle016/rshell/rshell.cpp || echo "path exists"
 " path exists "
+kle016@hammer.cs.ucr.edu$ test -d /home/csmajs/kle016/rshell/rshell.cpp && echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -d /home/csmajs/kle016/rshell/rshell.cpp || echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -d /home/csmajs/kle016/rshell/a.out && echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -d /home/csmajs/kle016/rshell/a.out || echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -d /this/is/fake && echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -d /this/is/fake || echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -d /home/csmajs/kle016/rshell/a.out && echo "path exists" && echo "path still exists"
+" path exists "
+" path still exists "
+kle016@hammer.cs.ucr.edu$ test -de /home/csmajs/kle016/rshell/a.out && echo "path exists" && echo "path still exists"
+error: flag doesnt exist
+-de
+kle016@hammer.cs.ucr.edu$ test -def /home/csmajs/kle016/rshell/a.out && echo "path exists" && echo "path still exists"
+error: flag doesnt exist
+-def
 kle016@hammer.cs.ucr.edu$ 
