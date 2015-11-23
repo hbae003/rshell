@@ -34,9 +34,9 @@ The test Command
 The rshell program has the test command and its symbolic equivalent, [ ]. The test command returns 0 (TRUE) if the test
 succeeds. It returns 1 (FALSE) if the test fails. The flags for the test command in the program are:
 
--e checks if the file/directory exists
--f checks if the file/directory exists and is a regular file
--d checks if the file/directory exists and is a directory
+- -e checks if the file/directory exists
+- -f checks if the file/directory exists and is a regular file
+- -d checks if the file/directory exists and is a directory
 
 
 
