@@ -1,1 +1,7 @@
-
+kle016@hammer.cs.ucr.edu$ pwd      
+/home/csmajs/kle016/rshell/src
+kle016@hammer.cs.ucr.edu$ test -e /home/csmajs/kle016/rshell/src
+kle016@hammer.cs.ucr.edu$ test -e /home/csmajs/kle016/rshell/src && echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -e /home/this/is/fake && echo "path exists"
+kle016@hammer.cs.ucr.edu$ 
