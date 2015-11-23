@@ -24,4 +24,20 @@ kle016@hammer.cs.ucr.edu$ test -e /home/this/is/fake || test -e /home/csmajs/kle
 " path exists "
 kle016@hammer.cs.ucr.edu$ test -e /home/this/is/fake || test -e /home/csmajs/kle016/rshell/src || echo "path exists"
 " path exists "
+kle016@hammer.cs.ucr.edu$ test -f /home/csmajs/kle016/rshell/src || echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -f /home/csmajs/kle016/rshell/src && echo "path exists"
+kle016@hammer.cs.ucr.edu$ test -f /home/csmajs/kle016/rshell/a.out && echo "path exists"
+kle016@hammer.cs.ucr.edu$ test -f /home/this/is/fake && echo "path exists"
+kle016@hammer.cs.ucr.edu$ test -f /home/this/is/fake || echo "path exists"
+" path exists "
+kle016@hammer.cs.ucr.edu$ test -ef /home/csmajs/kle016/rshell/src && echo "path exists"
+error: flag doesnt exist
+-ef
+kle016@hammer.cs.ucr.edu$ test -ef /home/csmajs/kle016/rshell/src && echo "path exists" && echo "path still exists"
+error: flag doesnt exist
+-ef
+kle016@hammer.cs.ucr.edu$ test -f /home/csmajs/kle016/rshell/rshell.cpp && echo "path exists"
+kle016@hammer.cs.ucr.edu$ test -f /home/csmajs/kle016/rshell/rshell.cpp || echo "path exists"
+" path exists "
 kle016@hammer.cs.ucr.edu$ 
