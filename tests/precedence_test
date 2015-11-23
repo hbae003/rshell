@@ -37,4 +37,35 @@ a.out  rshell.cpp
 A
 kle016@hammer.cs.ucr.edu$ (ls && pwd) || (ls -a && echo A)
 a.out  rshell.cpp
+kle016@hammer.cs.ucr.edu$ (ls && pwd) && (ls -a && echo A) && (echo A && pwd)
+a.out  rshell.cpp
 /home/csmajs/kle016/rshell/src
+.  ..  a.out  rshell.cpp
+A
+A
+/home/csmajs/kle016/rshell/src
+kle016@hammer.cs.ucr.edu$ (ls && pwd) || (ls -a && echo A) || (echo A && pwd)
+a.out  rshell.cpp
+/home/csmajs/kle016/rshell/src
+kle016@hammer.cs.ucr.edu$ (ls && ls -a && ls -l)
+a.out  rshell.cpp
+.  ..  a.out  rshell.cpp
+total 68
+-rwxr-xr-x 1 kle016 csmajs 54801 Nov 22 22:53 a.out
+-rw-r--r-- 1 kle016 csmajs  9852 Nov 22 22:52 rshell.cpp
+kle016@hammer.cs.ucr.edu$ (ls && ls -a && ls -l) && pwd; pwd
+a.out  rshell.cpp
+.  ..  a.out  rshell.cpp
+total 68
+-rwxr-xr-x 1 kle016 csmajs 54801 Nov 22 22:53 a.out
+-rw-r--r-- 1 kle016 csmajs  9852 Nov 22 22:52 rshell.cpp
+/home/csmajs/kle016/rshell/src
+/home/csmajs/kle016/rshell/src
+kle016@hammer.cs.ucr.edu$ (ls && ls -a && ls -l) || pwd; (echo A || ls)
+a.out  rshell.cpp
+.  ..  a.out  rshell.cpp
+total 68
+-rwxr-xr-x 1 kle016 csmajs 54801 Nov 22 22:53 a.out
+-rw-r--r-- 1 kle016 csmajs  9852 Nov 22 22:52 rshell.cpp
+A
+
