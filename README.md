@@ -48,5 +48,5 @@ List of known Bugs
 - Throws an error when given improper connectors (ex &&&, |||) 
 - cd command does not work
 - Host name cannot be larger than 200 characters
-- # cannot be a name of file or echoed
+- \# cannot be a name of file or echoed
 
